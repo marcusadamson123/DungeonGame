@@ -8,6 +8,6 @@ public class Koobas {
 
 public Koletis looJuhuslikKoletis() {
     return JuhuslikkuseAbi.juhuslikKoletis();
-}
     }
+
 }
