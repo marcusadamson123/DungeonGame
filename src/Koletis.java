@@ -3,4 +3,5 @@ public interface Koletis {
     int ründa();
     void saaKahju(int kahju);
     boolean onElus();
+    int getElud();
 }

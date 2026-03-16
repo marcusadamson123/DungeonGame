@@ -2,9 +2,9 @@ import java.util.Random;
 
 public class JuhuslikkuseAbi {
 
-    private Random random = new Random();
+    private static Random random = new Random();
 
-    Koletis juhuslikKoletis() {
+    public static Koletis juhuslikKoletis() {
         int x = random.nextInt(2);
 
         if (x == 0) {

@@ -14,15 +14,30 @@ public class Mängija{
     }
 
     public void saaKahju(int kahju) {
+        elud=elud-kahju;
+        if(elud<0){
+            elud=0;
+        }
 
     }
 
-    public void ründa() {
+    public int ründa() {
+        return rünnak;
 
     }
 
     public void ravi() {
+        if(ravijookideArv>0){
+            elud=elud+15;
+            ravijookideArv--;
+            if (elud>100){
+                elud=100;
+            }
+        }
 
+    }
+    boolean onElus(){
+        return elud>0;
     }
 
     public String getNimi() {
@@ -55,5 +70,8 @@ public class Mängija{
 
     public void setKuld(int kuld) {
         this.kuld = kuld;
+    }
+    public String toString(){
+        return getNimi() +": HP: "+getElud()+"; Ravijoogid: "+getRavijookideArv() + "; Kuld: "+getKuld();
     }
 }

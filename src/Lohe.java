@@ -20,4 +20,9 @@ public class Lohe implements Koletis {
     public boolean onElus() {
         return elud > 0;
     }
+
+    @Override
+    public int getElud(){
+        return elud;
+    }
 }

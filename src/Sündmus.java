@@ -1,3 +1,7 @@
-public class Sündmus {
+public enum Sündmus {
+    Koletis,
+    Aare,
+    Lõks,
+    Tühi,
 
 }
