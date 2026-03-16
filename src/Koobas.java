@@ -6,12 +6,8 @@ public class Koobas {
     Random random;
     Koletis koletis = looJuhuslikKoletis();
 
-    public Koletis looJuhuslikKoletis() {
-        Random r = new Random();
-        int x = r.nextInt(2);
-
-        // vaja lisada ja vajadusel muuta Koletised
-        if (x == 0) return new Zombi();
-        else return new Lohe();
+public Koletis looJuhuslikKoletis() {
+    return JuhuslikkuseAbi.juhuslikKoletis();
+}
     }
 }
