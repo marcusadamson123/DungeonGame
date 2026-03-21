@@ -3,5 +3,4 @@ public enum Sündmus {
     Aare,
     Lõks,
     Tühi,
-
 }

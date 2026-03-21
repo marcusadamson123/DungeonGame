@@ -18,12 +18,10 @@ public class Mängija{
         if(elud<0){
             elud=0;
         }
-
     }
 
     public int ründa() {
         return rünnak;
-
     }
 
     public void ravi() {

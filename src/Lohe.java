@@ -1,28 +1,11 @@
-public class Lohe implements Koletis {
-    private int elud = 40;
+public class Lohe extends Koletis {
 
-    @Override
-    public String getNimi() {
-        return "Lohe";
+    public Lohe() {
+        super("Lohe", 50, 20, 40);
     }
 
     @Override
     public int ründa() {
-        return 10;
-    }
-
-    @Override
-    public void saaKahju(int kahju) {
-        elud -= kahju;
-    }
-
-    @Override
-    public boolean onElus() {
-        return elud > 0;
-    }
-
-    @Override
-    public int getElud(){
-        return elud;
+        return juhuslik(8, 12);
     }
 }

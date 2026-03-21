@@ -1,28 +1,11 @@
-public class Zombi implements Koletis {
-    private int elud = 20;
+public class Zombi extends Koletis {
 
-    @Override
-    public String getNimi() {
-        return "Zombi";
+    public Zombi() {
+        super("Zombi", 30, 1, 5);
     }
 
     @Override
     public int ründa() {
-        return 4;
-    }
-
-    @Override
-    public void saaKahju(int kahju) {
-        elud -= kahju;
-    }
-
-    @Override
-    public boolean onElus() {
-        return elud > 0;
-    }
-
-    @Override
-    public int getElud(){
-        return elud;
+        return juhuslik(3, 5);
     }
 }

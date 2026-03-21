@@ -17,7 +17,7 @@ public class Mäng {
             nimi = "Tundmatu kangelane";
         }
         mängija = new Mängija(nimi, 100, 10, 2, 0);
-        koobas = new Koobas();
+        koobas = new Koobas(1, 4);
         mängLäbi = false;
         System.out.println("Tere tulemast koopasse, " + mängija.getNimi());
         System.out.println("Proovi koguda võimalikult palju kulda ja pääseda koopast tervena.");
@@ -59,7 +59,7 @@ public class Mäng {
     public void töötleSündmus(Sündmus sündmus) {
         switch (sündmus) {
             case Koletis:
-                Koletis koletis = koobas.looJuhuslikKoletis();
+                Koletis koletis = koobas.koletis;
                 System.out.println("Pimedas koopas tuli sulle vastu üks " + koletis.getNimi() + "!");
                 while (koletis.onElus() && mängija.onElus()) {
                     String otsus = küsiTegevus();
@@ -74,12 +74,12 @@ public class Mäng {
                             System.out.println(koletis.getNimi() + " ründas sind tehes " + koletiseKahju + " kahju");
                             System.out.println(mängija.getNimi() + "HP: " + mängija.getElud());
                         }else{
-                                int saadudKuld=random.nextInt(21)+5;
-                                mängija.setKuld(mängija.getKuld()+saadudKuld);
-                            }
+                            int saadudKuld=random.nextInt(21)+5;
+                            mängija.setKuld(mängija.getKuld()+saadudKuld);
                         }
                     }
                 }
+            }
         }
 
     public String küsiTegevus() {

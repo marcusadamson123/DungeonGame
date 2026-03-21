@@ -3,11 +3,12 @@ import java.util.Random;
 public class Koobas {
     int kambriNumber;
     int kambriteKoguarv;
-    Random random;
-    Koletis koletis = looJuhuslikKoletis();
+    Koletis koletis;
 
-    public Koletis looJuhuslikKoletis() {
-        return JuhuslikkuseAbi.juhuslikKoletis();
+    public Koobas(int kambriNumber, int kambriteKoguarv) {
+        this.kambriNumber = kambriNumber;
+        this.kambriteKoguarv = kambriteKoguarv;
+        this.koletis = JuhuslikkuseAbi.juhuslikKoletis(kambriNumber);
     }
 
     public Sündmus looSündmus() {
