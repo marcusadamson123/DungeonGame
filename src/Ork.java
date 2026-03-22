@@ -6,7 +6,7 @@ public class Ork extends Koletis {
 
     @Override
     public int ründa() {
-        int kahju = juhuslik(7, 10);
+        int kahju = juhuslik(7, 15);
         // saab 3 elu tagasi;
         setElud(getElud() + 3);
         return kahju;

@@ -6,6 +6,6 @@ public class Skelett extends Koletis {
 
     @Override
     public int ründa() {
-        return juhuslik(5, 8);
+        return juhuslik(3, 10);
     }
 }

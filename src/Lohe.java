@@ -6,6 +6,6 @@ public class Lohe extends Koletis {
 
     @Override
     public int ründa() {
-        return juhuslik(8, 12);
+        return juhuslik(10, 20);
     }
 }

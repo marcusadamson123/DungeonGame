@@ -6,7 +6,7 @@ public class Vampiir extends Koletis {
 
     @Override
     public int ründa() {
-        int kahju = juhuslik(4, 6);
+        int kahju = juhuslik(5, 8);
         // saab 2 elu tagasi;
         setElud(getElud() + 2);
         return kahju;

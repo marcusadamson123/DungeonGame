@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Mängija{
     private String nimi;
     private int elud;
@@ -21,7 +23,13 @@ public class Mängija{
     }
 
     public int ründa() {
-        return rünnak;
+        Random random=new Random();
+        int dmg = random.nextInt(6) + rünnak - 4;
+        if (random.nextInt(5) == 0){
+            dmg *= 2;
+            System.out.println("KRITILINE LÖÖK!");
+        }
+        return dmg;
     }
 
     public void ravi() {
