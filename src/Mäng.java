@@ -8,7 +8,7 @@ public class Mäng {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
     int käigud;
-
+//Valmistab kõik vajalikud asjad mänguks.
     public void alustaMängu() {
         System.out.println("OLETE JÕUDNUD PIMEDASSE KOOPASSE");
         System.out.println("Sisesta oma kangelase nimi:");
@@ -40,14 +40,14 @@ public class Mäng {
             }
         }
         System.out.println();
-        System.out.println("================ LÕPPSEIS ================");
+        System.out.println("================LÕPPSEIS================");
         System.out.println("Nimi: "+mängija.getNimi());
         System.out.println("Elud: "+mängija.getElud());
         System.out.println("Ravijoogid: "+mängija.getRavijookideArv());
         System.out.println("Kuld: "+mängija.getKuld());
         System.out.println("==========================================");
     }
-
+//Haldab mängu ja selle käike.
     public void teeKäik() {
         käigud = käigud + 1;
         System.out.println();
@@ -75,6 +75,7 @@ public class Mäng {
         }
         koobas = new Koobas(koobas.kambriNumber+1,koobas.kambriteKoguarv);
     }
+    //haldab võimalikke sündmuseid
     public void töötleSündmus(Sündmus sündmus) {
         switch (sündmus) {
             case Koletis:
@@ -84,7 +85,7 @@ public class Mäng {
             case Aare:
                 int kuld =random.nextInt(15) + 5;
                 mängija.setKuld(mängija.getKuld() + kuld);
-                System.out.println("Leidsid aarde! +" + kuld + " kulda");
+                System.out.println("Leidsid aarde! Said " + kuld + " kulda");
                 System.out.println("Praegune kuld: " + mängija.getKuld());
                 break;
             case Lõks:
@@ -98,6 +99,7 @@ public class Mäng {
                 break;
         }
     }
+    //Haldab võitlust koletistega
     public void võitlus() {
         Koletis koletis = koobas.koletis;
         if (koletis instanceof Lohe){
@@ -129,7 +131,7 @@ public class Mäng {
                         int voit =koletis.saaKulda();
                         mängija.setKuld(mängija.getKuld() +voit);
                         System.out.println("Võitsid koletise vastu!");
-                        System.out.println("Said" +voit + "kulda.");
+                        System.out.println("Said " +voit + "kulda.");
                         System.out.println("Sinu kuld kokku: " + mängija.getKuld());
                     }
                     break;
@@ -164,6 +166,7 @@ public class Mäng {
             }
         }
     }
+    //Küsib kasutajalt tema tegevust
     public String küsiTegevus() {
         System.out.println();
         System.out.println("Vali tegevus:");

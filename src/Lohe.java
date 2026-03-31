@@ -8,4 +8,9 @@ public class Lohe extends Koletis {
     public int ründa() {
         return juhuslik(10, 20);
     }
+    @Override
+    public int saaKulda() {
+        return 100;
+    }
+
 }
