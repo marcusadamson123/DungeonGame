@@ -32,7 +32,7 @@ Programm käivitatakse läbi Main klassi.
 Mäng lõppeb, kui mängija elu saab otsa või kõik sündmused on läbitud.
 
 
-##  KLASSID JA STRUKTUUR
+## ⚙️ KLASSID JA STRUKTUUR
 
 ### 📦 Klass: Main
 - **Eesmärk:** Programmi käivitamine
