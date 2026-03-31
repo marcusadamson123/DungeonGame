@@ -2,7 +2,7 @@
 
 
 ## 👤 AUTORID
-- Marcus
+- Marcus Adamson
 - Nikolas Arro
 
 ## 🧩 PROJEKTI PÕHIKIRJELDUS
