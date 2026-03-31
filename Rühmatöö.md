@@ -115,7 +115,7 @@ Mäng lõppeb, kui mängija elu saab otsa või kõik sündmused on läbitud.
   Lahendus: kasutati pärimist
 
 - Probleem: juhuslikkus mängus  
-  Lahendus: loodi eraldi `JuhuslikkuseAbi` klass
+  Lahendus: loodi eraldi JuhuslikkuseAbi klass
 
 ---
 
