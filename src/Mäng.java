@@ -14,9 +14,11 @@ public class Mäng {
         System.out.println("OLETE JÕUDNUD PIMEDASSE KOOPASSE");
         System.out.println("Sisesta oma kangelase nimi: ");
         String nimi = scanner.nextLine();
+
         if (nimi.equals("")) {
             nimi = "Tundmatu kangelane";
         }
+
         mängija = new Mängija(nimi, 100, 10, 2, 0);
         koobas = new Koobas(1, random.nextInt(7) + 5);
         mängLäbi = false;
@@ -27,10 +29,11 @@ public class Mäng {
         System.out.println("ALGSEIS: " + mängija);
         System.out.println("======================================================");
         käigud = 0;
+
         while (!mängLäbi) {
             teeKäik();
             if (!mängija.onElus()) {
-                mängLäbi=true;
+                mängLäbi = true;
                 System.out.println();
                 System.out.println("MÄNG LÄBI. " + mängija.getNimi() + " sai koopas surma.");
             }
@@ -48,7 +51,8 @@ public class Mäng {
         System.out.println("Kuld: " + mängija.getKuld());
         System.out.println("==========================================");
     }
-//Haldab mängu ja selle käike.
+
+    //Haldab mängu ja selle käike.
     public void teeKäik() {
         käigud = käigud + 1;
         System.out.println();
@@ -56,13 +60,16 @@ public class Mäng {
         System.out.println("KÄIK " + käigud + " | KAMBER " + koobas.kambriNumber + "/" + koobas.kambriteKoguarv);
         System.out.println("Mängija seis: " + mängija);
         System.out.println("------------------------------------------------------");
-        Sündmus sündmus=koobas.looSündmus();
+
+        Sündmus sündmus = koobas.looSündmus();
         töötleSündmus(sündmus);
-        if (!mängija.onElus()){
+
+        if (!mängija.onElus()) {
             mängLäbi = true;
             return;
         }
-        if (koobas.kambriNumber>=koobas.kambriteKoguarv) {
+
+        if (koobas.kambriNumber >= koobas.kambriteKoguarv) {
             mängLäbi = true;
             System.out.println();
             System.out.println("Palju õnne! Jõudsid koopast välja!");
@@ -76,7 +83,8 @@ public class Mäng {
         }
         koobas = new Koobas(koobas.kambriNumber+1,koobas.kambriteKoguarv);
     }
-    //haldab võimalikke sündmuseid
+
+    // Haldab võimalikke sündmusi
     public void töötleSündmus(Sündmus sündmus) {
         switch (sündmus) {
             case Koletis:
@@ -84,7 +92,7 @@ public class Mäng {
                 võitlus();
                 break;
             case Aare:
-                int kuld =random.nextInt(15) + 5;
+                int kuld = random.nextInt(15) + 5;
                 mängija.setKuld(mängija.getKuld() + kuld);
                 System.out.println("Leidsid aarde! Said " + kuld + " kulda");
                 System.out.println("Praegune kuld: " + mängija.getKuld());
@@ -100,6 +108,7 @@ public class Mäng {
                 break;
         }
     }
+
     //Haldab võitlust koletistega
     public void võitlus() {
         Koletis koletis = koobas.koletis;
@@ -111,18 +120,19 @@ public class Mäng {
         }
         System.out.println("Sinu ette ilmus: " + koletis.getNimi() + "!");
         System.out.println("Koletise HP: " + koletis.getElud());
+
         while (koletis.onElus()&&mängija.onElus()) {
             System.out.println();
             System.out.println("--- VÕITLUSE SEIS ---");
             System.out.println(mängija.getNimi()+" HP: " + mängija.getElud());
             System.out.println(koletis.getNimi()+" HP: " + koletis.getElud());
-            String valik=küsiTegevus();
+            String valik = küsiTegevus();
             switch (valik) {
                 case "1":
                     int dmg = mängija.ründa();
                     koletis.saaKahju(dmg);
-                    System.out.println("Ründasid "+koletis.getNimi() + " ja tegid " + dmg + " kahju.");
-                    System.out.println(koletis.getNimi()+" HP on nüüd: "+koletis.getElud());
+                    System.out.println("Ründasid " + koletis.getNimi() + " ja tegid " + dmg + " kahju.");
+                    System.out.println(koletis.getNimi() + " HP on nüüd: "+koletis.getElud());
                     if (koletis.onElus()) {
                         int vastaseKahju = koletis.ründa();
                         mängija.saaKahju(vastaseKahju);

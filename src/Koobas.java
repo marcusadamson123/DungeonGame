@@ -9,12 +9,12 @@ public class Koobas {
         this.kambriNumber = kambriNumber;
         this.kambriteKoguarv = kambriteKoguarv;
         this.koletis = JuhuslikkuseAbi.juhuslikKoletis(kambriNumber);
+
         if (kambriNumber == kambriteKoguarv) {
             this.koletis = JuhuslikkuseAbi.juhuslikKoletis(kambriNumber, true);
         } else {
             this.koletis = JuhuslikkuseAbi.juhuslikKoletis(kambriNumber);
         }
-
     }
 
     public Sündmus looSündmus() {
@@ -23,7 +23,6 @@ public class Koobas {
         if (x == 0) return Sündmus.Koletis;
         if (x == 1) return Sündmus.Aare;
         if (x == 2) return Sündmus.Lõks;
-
 
         return Sündmus.Tühi;
     }
