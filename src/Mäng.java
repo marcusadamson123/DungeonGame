@@ -8,22 +8,23 @@ public class Mäng {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
     int käigud;
-//Valmistab kõik vajalikud asjad mänguks.
+
+    //Valmistab kõik vajalikud asjad mänguks.
     public void alustaMängu() {
         System.out.println("OLETE JÕUDNUD PIMEDASSE KOOPASSE");
-        System.out.println("Sisesta oma kangelase nimi:");
+        System.out.println("Sisesta oma kangelase nimi: ");
         String nimi = scanner.nextLine();
         if (nimi.equals("")) {
             nimi = "Tundmatu kangelane";
         }
         mängija = new Mängija(nimi, 100, 10, 2, 0);
-        koobas = new Koobas(1, random.nextInt(7)+5);
+        koobas = new Koobas(1, random.nextInt(7) + 5);
         mängLäbi = false;
-        System.out.println("Tere tulemast koopasse, "+mängija.getNimi() + "!");
+        System.out.println("Tere tulemast koopasse, " + mängija.getNimi() + "!");
         System.out.println("Proovi koguda võimalikult palju kulda ja pääseda koopast tervena.");
         System.out.println("======================================================");
         System.out.println();
-        System.out.println("ALGSEIS: "+mängija);
+        System.out.println("ALGSEIS: " + mängija);
         System.out.println("======================================================");
         käigud = 0;
         while (!mängLäbi) {
@@ -31,7 +32,7 @@ public class Mäng {
             if (!mängija.onElus()) {
                 mängLäbi=true;
                 System.out.println();
-                System.out.println("MÄNG LÄBI. "+mängija.getNimi() +" sai koopas surma.");
+                System.out.println("MÄNG LÄBI. " + mängija.getNimi() + " sai koopas surma.");
             }
             if (!mängLäbi) {
                 System.out.println();
@@ -41,10 +42,10 @@ public class Mäng {
         }
         System.out.println();
         System.out.println("================LÕPPSEIS================");
-        System.out.println("Nimi: "+mängija.getNimi());
-        System.out.println("Elud: "+mängija.getElud());
-        System.out.println("Ravijoogid: "+mängija.getRavijookideArv());
-        System.out.println("Kuld: "+mängija.getKuld());
+        System.out.println("Nimi: " + mängija.getNimi());
+        System.out.println("Elud: " + mängija.getElud());
+        System.out.println("Ravijoogid: " + mängija.getRavijookideArv());
+        System.out.println("Kuld: " + mängija.getKuld());
         System.out.println("==========================================");
     }
 //Haldab mängu ja selle käike.
@@ -65,7 +66,7 @@ public class Mäng {
             mängLäbi = true;
             System.out.println();
             System.out.println("Palju õnne! Jõudsid koopast välja!");
-            if (mängija.getKuld()>40){
+            if (mängija.getKuld() > 40){
                 System.out.println("Leidsid koopast palju aaret, peaksid olema uhke enda üle!");
             }
             else{
@@ -108,42 +109,41 @@ public class Mäng {
             System.out.println(mängija.getNimi() + ", valmistu raskeks võitluseks");
             System.out.println("=======================================");
         }
-        System.out.println("Sinu ette ilmus: "+koletis.getNimi() + "!");
-        System.out.println("Koletise HP: "+koletis.getElud());
+        System.out.println("Sinu ette ilmus: " + koletis.getNimi() + "!");
+        System.out.println("Koletise HP: " + koletis.getElud());
         while (koletis.onElus()&&mängija.onElus()) {
             System.out.println();
             System.out.println("--- VÕITLUSE SEIS ---");
-            System.out.println(mängija.getNimi()+" HP: "+mängija.getElud());
-            System.out.println(koletis.getNimi()+" HP: "+koletis.getElud());
+            System.out.println(mängija.getNimi()+" HP: " + mängija.getElud());
+            System.out.println(koletis.getNimi()+" HP: " + koletis.getElud());
             String valik=küsiTegevus();
             switch (valik) {
                 case "1":
                     int dmg = mängija.ründa();
                     koletis.saaKahju(dmg);
-                    System.out.println("Ründasid "+koletis.getNimi()+" ja tegid "+dmg +" kahju.");
+                    System.out.println("Ründasid "+koletis.getNimi() + " ja tegid " + dmg + " kahju.");
                     System.out.println(koletis.getNimi()+" HP on nüüd: "+koletis.getElud());
                     if (koletis.onElus()) {
-                        int vastaseKahju =koletis.ründa();
+                        int vastaseKahju = koletis.ründa();
                         mängija.saaKahju(vastaseKahju);
                         System.out.println(koletis.getNimi() + " lõi vastu ja tegi " + vastaseKahju + " kahju.");
                         System.out.println("Sinu HP on nüüd: " + mängija.getElud());
                     } else {
-                        int voit =koletis.saaKulda();
-                        mängija.setKuld(mängija.getKuld() +voit);
+                        int voit = koletis.saaKulda();
+                        mängija.setKuld(mängija.getKuld() + voit);
                         System.out.println("Võitsid koletise vastu!");
-                        System.out.println("Said " +voit + "kulda.");
+                        System.out.println("Said " + voit + " kulda.");
                         System.out.println("Sinu kuld kokku: " + mängija.getKuld());
                     }
                     break;
-
                 case "2":
-                    int enneHP= mängija.getElud();
-                    int joogidEnne= mängija.getRavijookideArv();
+                    int enneHP = mängija.getElud();
+                    int joogidEnne = mängija.getRavijookideArv();
                     mängija.ravi();
                     if (joogidEnne > 0) {
                         System.out.println("Kasutasid ravijooki.");
-                        System.out.println("HP: " + enneHP +" -> "+ mängija.getElud());
-                        System.out.println("Ravijooke alles: "+mängija.getRavijookideArv());
+                        System.out.println("HP: " + enneHP +" -> " + mängija.getElud());
+                        System.out.println("Ravijooke alles: " + mängija.getRavijookideArv());
                     } else {
                         System.out.println("Sul ei ole enam ravijooke!");
                     }
@@ -156,16 +156,16 @@ public class Mäng {
                         System.out.println("Ei õnnestunud põgeneda!");
                         int dmg1 = koletis.ründa();
                         mängija.saaKahju(dmg1);
-                        System.out.println(koletis.getNimi()+" ründas sind ja tegi " +dmg1+" kahju!");
+                        System.out.println(koletis.getNimi() + " ründas sind ja tegi " + dmg1 + " kahju!");
                     }
                     break;
-
                 default:
                     System.out.println("Vale valik! Proovi uuesti.");
                     break;
             }
         }
     }
+
     //Küsib kasutajalt tema tegevust
     public String küsiTegevus() {
         System.out.println();

@@ -41,6 +41,7 @@ public abstract class Koletis {
     }
 
     public abstract int ründa();
+
     protected static Random random = new Random();
 
     protected int juhuslik(int min, int max) {

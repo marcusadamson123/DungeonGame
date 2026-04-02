@@ -16,14 +16,12 @@ public class Mängija{
     }
 
     public void saaKahju(int kahju) {
-        elud=elud-kahju;
-        if(elud<0){
-            elud=0;
-        }
+        elud = elud - kahju;
+        if(elud < 0) elud = 0;
     }
 
     public int ründa() {
-        Random random=new Random();
+        Random random = new Random();
         int dmg = random.nextInt(6) + rünnak - 4;
         if (random.nextInt(5) == 0){
             dmg *= 2;
@@ -33,41 +31,29 @@ public class Mängija{
     }
 
     public void ravi() {
-        if(ravijookideArv>0){
-            elud=elud+15;
+        if (ravijookideArv > 0) {
+            elud = elud + 15;
             ravijookideArv--;
-            if (elud>100){
-                elud=100;
+            if (elud > 100){
+                elud = 100;
             }
         }
-
     }
+
     boolean onElus(){
-        return elud>0;
+        return elud > 0;
     }
 
     public String getNimi() {
         return nimi;
     }
 
-    public void setNimi(String nimi) {
-        this.nimi = nimi;
-    }
-
     public int getElud() {
         return elud;
     }
 
-    public void setElud(int elud) {
-        this.elud = elud;
-    }
-
     public int getRavijookideArv() {
         return ravijookideArv;
-    }
-
-    public void setRavijookideArv(int ravijookideArv) {
-        this.ravijookideArv = ravijookideArv;
     }
 
     public int getKuld() {
@@ -77,7 +63,8 @@ public class Mängija{
     public void setKuld(int kuld) {
         this.kuld = kuld;
     }
+
     public String toString(){
-        return getNimi() +": HP: "+getElud()+"; Ravijoogid: "+getRavijookideArv() + "; Kuld: "+getKuld();
+        return getNimi() + ": HP: "+getElud() + "; Ravijoogid: " + getRavijookideArv() + "; Kuld: " + getKuld();
     }
 }
